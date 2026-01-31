@@ -2,6 +2,7 @@ package learn.spring_boot.crud.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+import learn.spring_boot.crud.validator.ValidPrice;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,15 +19,14 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private String id;
 
-    @NotBlank(message = "Brand can not be null or blank")
+    @NotBlank(message = "Le nom de la marque ne peut etre pas vide ou null")
     private String brand;
 
-    @NotBlank(message = "Price can not be null or blank")
-    @PositiveOrZero(message = "Price can not be negative")
-    @Min(value = 7500, message = "The min price is 7500")
+
+    @ValidPrice(message = "Prix invalide")
     private BigDecimal price;
 
-    @NotBlank(message = "Mass can not be null or blank")
-    @Positive
+    @NotBlank(message = "La masse ne peut pas etre vide ou null")
+    @Positive(message = "La masse est invalide, veuillez entrer une valeur positive")
     private double mass;
 }
