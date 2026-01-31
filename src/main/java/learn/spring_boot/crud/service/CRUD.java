@@ -39,6 +39,6 @@ public interface CRUD<E,D> {
      * @param dto
      * @return E entity
      * */
-    E update(D dto, String id);
+    E update(D dto, int id);
 
 }
