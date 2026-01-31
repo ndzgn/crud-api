@@ -57,7 +57,11 @@ public class ProductService implements CRUD<Product, CreateProductDTO> {
 
     @Override
     @Transactional
-    public Product update(CreateProductDTO dto, String id) throws ProductNotFoundException {
-        return null;
+    public Product update(CreateProductDTO dto, int id) throws ProductNotFoundException {
+        Product product = this.readById(id);
+        product.setBrand(dto.getBrand());
+        product.setPrice(dto.getPrice());
+        product.setMass(dto.getMass());
+        return productRepository.save(product);
     }
 }
