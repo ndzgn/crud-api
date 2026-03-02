@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.core.io.UrlResource;
 
 import java.math.BigDecimal;
 
@@ -31,4 +32,6 @@ public class Product {
 
     @Positive(message = "La masse est invalide, veuillez entrer une valeur positive")
     private double mass;
+
+    private String file_url;
 }

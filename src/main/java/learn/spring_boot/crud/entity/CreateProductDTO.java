@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.core.io.UrlResource;
 
 import java.math.BigDecimal;
 
@@ -26,4 +27,6 @@ public class CreateProductDTO {
 
     @ValidPrice(message = "Prix invalide")
     private BigDecimal price;
+
+    private String file_url;
 }
